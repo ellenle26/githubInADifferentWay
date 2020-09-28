@@ -133,13 +133,6 @@ function App() {
   return !data ? (
     <div>
       <BarLoader css={override} size={150} color={"blue"} loading={loading} />
-      <div>
-        Try to make github issue in a different way. <br />
-        Things work, except: <br />
-        - Loadmore works after 2nd click i/o first click <br />
-        - Spinner didn't show up <br />- If use try-catch on the getCommentList
-        function, can't do loadmore T.T
-      </div>
     </div>
   ) : (
     <div>
@@ -164,16 +157,27 @@ function App() {
           />
         </div>
       )}
-      <IssueList
-        data={data}
-        getIssueItem={getIssueItem}
-        issueDetail={issueDetail}
-        commentList={commentList}
-        handleComment={handleComment}
-        totalComPage={totalComPage}
-        commentPage={commentPage}
-        commentloading={commentloading}
-      />
+
+      {!data ? (
+        <div>
+          Try to make github issue in a different way. <br />
+          Things work, except: <br />
+          - Loadmore works after 2nd click i/o first click <br />
+          - Spinner didn't show up <br />- If use try-catch on the
+          getCommentList function, can't do loadmore T.T
+        </div>
+      ) : (
+        <IssueList
+          data={data}
+          getIssueItem={getIssueItem}
+          issueDetail={issueDetail}
+          commentList={commentList}
+          handleComment={handleComment}
+          totalComPage={totalComPage}
+          commentPage={commentPage}
+          commentloading={commentloading}
+        />
+      )}
     </div>
   );
 }

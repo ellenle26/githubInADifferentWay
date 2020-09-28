@@ -20,7 +20,7 @@ const IssueItem = ({
 }) => {
   return (
     <div>
-      <Modal show={show} onHide={() => handleClose()}>
+      <Modal size="xl" show={show} onHide={() => handleClose()}>
         <Modal.Header closeButton>
           <Modal.Title>{issueDetail.title}</Modal.Title>
         </Modal.Header>
